@@ -20,7 +20,11 @@ python setup.py install
 
 to move the bindings to your local python Lib or site-packages. 
 
+## Contact
 If you find any problems related to installation, please contact haotiz@uw.edu or look for answers in **[issue](https://github.com/uoip/pangolin/issues)**
+
+## License
+Follow **[Pangolin](http://github.com/stevenlovegrove/Pangolin)**, the C++ binding code and python example code of this project is released under MIT License.
 
 ------------------------------------
 ------------------------------------
