@@ -1,3 +1,31 @@
+# pypangolin-for-win
+
+This is a python binding for Pangolin **[Pangolin](http://github.com/stevenlovegrove/Pangolin)** on windows based on **[uoip/pangolin](https://github.com/uoip/pangolin)** on linux (Ubuntu). Some modifications on CMakeLists were made due to WIN-x64 compatibility.
+
+## Installation
+```
+git clone https://github.com/Haotian-Zhang/pypangolin-for-windows.git
+cd pypangolin-for-win
+mkdir build
+cd build
+cmake -G "Visual Studio 13/14/15 2013/2015/2017 Win64" ..
+cmake --build . --config Release --target INSTALL
+```
+
+You may find a binding library named 'pangolin.cpxx-win_amd64.pyd' in dir (build/src/Release) after the project is built. Run the following command:
+
+```
+python setup.py install
+```
+
+to move the bindings to your local python Lib or site-packages. 
+
+If you find any problems related to installation, please contact haotiz@uw.edu or look for answers in **[issue](https://github.com/uoip/pangolin/issues)**
+
+------------------------------------
+------------------------------------
+------------------------------------
+
 # pangolin
 
 The project implements a python binding for 3D visualization library **[Pangolin](http://github.com/stevenlovegrove/Pangolin)**.
@@ -89,7 +117,7 @@ numpy array directly without copying data (thanks to [pybind11](https://github.c
 
 **[SimpleDisplayImage.py](python/examples/SimpleDisplayImage.py)** (image and 3d object):  
 ![](python/examples/imgs/SimpleDisplayImage.png)
- 
+
 **[SimpleDisplayMenu.py](python/examples/SimpleDisplayMenu.py)** (basic GUI):  
 ![](python/examples/imgs/SimpleDisplayMenu.png)
 

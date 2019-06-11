@@ -19,9 +19,13 @@ class CopyLibFile(install):
         install_dir = get_python_lib()
 
         lib_file = glob.glob(__library_file__)
-        assert len(lib_file) == 1 and len(install_dirs) >= 1     
 
-        print('copying {} -> {}'.format(lib_file[0], install_dirs[0]))
+        if len(lib_file) == 0:
+            lib_file = glob.glob('./build/src/Release/pangolin*.pyd')
+
+        assert len(lib_file) == 1
+
+        print('copying {} -> {}'.format(lib_file[0], install_dir))
         shutil.copy(lib_file[0], install_dir)
 
 
@@ -37,14 +41,14 @@ setup(
         install=CopyLibFile
     ),
     keywords='Pangolin, binding, OpenGL, 3D, visualization, Point Cloud',
-    long_description="""This is a Python binding for c++ library Pangolin 
+    long_description="""This is a Python binding for c++ library Pangolin
         (https://github.com/stevenlovegrove/Pangolin).
 
-        Pangolin is a lightweight portable rapid development library for managing 
-        OpenGL display / interaction and abstracting video input. At its heart is 
-        a simple OpenGl viewport manager which can help to modularise 3D visualisation 
-        without adding to its complexity, and offers an advanced but intuitive 3D navigation 
-        handler. Pangolin also provides a mechanism for manipulating program variables through 
-        config files and ui integration, and has a flexible real-time plotter for visualising 
+        Pangolin is a lightweight portable rapid development library for managing
+        OpenGL display / interaction and abstracting video input. At its heart is
+        a simple OpenGl viewport manager which can help to modularise 3D visualisation
+        without adding to its complexity, and offers an advanced but intuitive 3D navigation
+        handler. Pangolin also provides a mechanism for manipulating program variables through
+        config files and ui integration, and has a flexible real-time plotter for visualising
         graphical data."""
 )

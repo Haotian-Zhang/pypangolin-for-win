@@ -47,12 +47,8 @@ else()
 endif()
 
 if(NOT MSVC)
-    set( CMAKE_CXX_FLAGS "-std=c++14 -Wall -Wextra ${CMAKE_CXX_FLAGS}" )
-    if(_CLANG_)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-    endif()
+    set( CMAKE_CXX_FLAGS "-std=c++0x -Wall -Wextra ${CMAKE_CXX_FLAGS}" )
 endif()
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")    # modified for python binding (add " -fPIC")
 
 if(ANDROID)
     set(ANDROID_PACKAGE_NAME "com.github.stevenlovegrove.pangolin")
@@ -80,7 +76,7 @@ endif()
 
 string(TOLOWER _${PROJECT_NAME} LIBRARY_NAME)    # modified for python binding (add "_" to avoid naming conflict with python library "pangolin")
 
-# make an uninstall target 
+# make an uninstall target
 configure_file(
  	"${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
   	"${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
@@ -92,7 +88,7 @@ add_custom_target(uninstall
 
 add_subdirectory("external")
 add_subdirectory("src")
-add_subdirectory("python")
+# add_subdirectory("python")
 
 if(BUILD_TESTS)
   add_subdirectory("test")

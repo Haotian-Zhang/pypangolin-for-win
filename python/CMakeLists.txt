@@ -1,5 +1,5 @@
 include_directories( ${PROJECT_SOURCE_DIR}/include)
-include_directories( "/usr/include/eigen3" )
+# include_directories( "/usr/include/eigen3" )
 find_package(pybind11)
 
 
